@@ -26,7 +26,7 @@ baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/xxng1/xxng1.github.io"
 teaser                   : #"assets/images"
 logo                     : #"assets/images"
-masthead_title           : "woongLog🚀"
+masthead_title           : "woongLog 🚀"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
