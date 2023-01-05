@@ -24,8 +24,8 @@ description              : "woongLog2"
 url                      : "https://xxng1.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/xxng1/xxng1.github.io"
-teaser                   : "assets/images"
-logo                     : "assets/images"
+teaser                   : #"assets/images"
+logo                     : #"assets/images"
 masthead_title           : "woongLog3"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
