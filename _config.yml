@@ -26,7 +26,7 @@ baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "https://github.com/xxng1/xxng1.github.io"
 teaser                   : #"assets/images"
 logo                     : #"assets/images"
-masthead_title           : "woongLog"
+masthead_title           : "woongLog🚀"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -41,8 +41,8 @@ comments:
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
   utterances:
-    theme                : # "github-light" (default), "github-dark"
-    issue_term           : # "pathname" (default)
+    theme                : "photon-dark" # "github-light" (default), "github-dark"
+    issue_term           : "pathname" # "pathname" (default)
   giscus:
     repo_id              : # Shown during giscus setup at https://giscus.app
     category_name        : # Full text name of the category
@@ -105,7 +105,7 @@ analytics:
 # Site Author
 author:
   name             : "woong"
-  avatar           : #"![image](https://user-images.githubusercontent.com/114065532/210770930-c15e7e89-ac57-4a00-9886-7277da52de09.png)"
+  avatar           : "https://user-images.githubusercontent.com/114065532/210770930-c15e7e89-ac57-4a00-9886-7277da52de09.png"
   bio              : "hello world!"
   location         : #"🚀"
   email            :
@@ -124,10 +124,10 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+      url: "https://github.com/xxng1"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://instagram.com/woong__aa"
 
 # Site Footer
 footer:
