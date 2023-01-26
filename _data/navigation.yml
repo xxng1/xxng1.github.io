@@ -1,6 +1,6 @@
 main:
-  - title: "Category"
+  - title: "📂"
     url: /categories/
 
-  - title: "Tag"
+  - title: "🏷️"
     url: /tags/
