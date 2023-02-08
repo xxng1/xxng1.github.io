@@ -8,6 +8,73 @@
         🔎 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">{{sum}}</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
       </li>
       <li>
+        <span class="nav__sub-title">Algorithm</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "BOJ" %}
+                        <li><a href="/categories/BOJ" class="">백준 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Programmers" %}
+                        <li><a href="/categories/Programmers" class="">프로그래머스 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Coding Test Lesson" %}
+                        <li><a href="/categories/coding-test-lesson" class="">코딩 테스트 강의 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "CodeUp" %}
+                        <li><a href="/categories/codeup" class="">코드업 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Algorithm Lesson 1" %}
+                        <li><a href="/categories/algorithm-lesson-1" class="">알고리즘 강의1 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Algorithm Lesson 2" %}
+                        <li><a href="/categories/algorithm-lesson-2" class="">알고리즘 강의2 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "DataStructure" %}
+                        <li><a href="/categories/data-structure" class="">C 자료구조 강의 1({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "DataStructure2" %}
+                        <li><a href="/categories/data-structure2" class="">C 자료구조 강의 2({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "CSetc" %}
+                        <li><a href="/categories/csetc" class="">etc ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
         <span class="nav__sub-title">C/C++/C#</span>
             <ul>
                 {% for category in site.categories %}
@@ -52,42 +119,7 @@
                 {% endfor %}
             </ul>
 
-        <span class="nav__sub-title">Coding Test</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Algorithm" %}
-                        <li><a href="/categories/algorithm" class="">알고리즘 구현 (with C++) ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "BOJ" %}
-                        <li><a href="/categories/BOJ" class="">백준 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Programmers" %}
-                        <li><a href="/categories/Programmers" class="">프로그래머스 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Coding Test Lesson" %}
-                        <li><a href="/categories/coding-test-lesson" class="">코딩 테스트 강의 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "CodeUp" %}
-                        <li><a href="/categories/codeup" class="">코드업 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
+        
 
         <span class="nav__sub-title">Unity</span>
             <ul>
@@ -125,42 +157,7 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-        <span class="nav__sub-title">CS</span>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Algorithm Lesson 1" %}
-                        <li><a href="/categories/algorithm-lesson-1" class="">알고리즘 강의1 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Algorithm Lesson 2" %}
-                        <li><a href="/categories/algorithm-lesson-2" class="">알고리즘 강의2 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "DataStructure" %}
-                        <li><a href="/categories/data-structure" class="">C 자료구조 강의 1({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "DataStructure2" %}
-                        <li><a href="/categories/data-structure2" class="">C 자료구조 강의 2({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            <ul>
-                {% for category in site.categories %}
-                    {% if category[0] == "Network" %}
-                        <li><a href="/categories/network" class="">네트워크 ({{category[1].size}})</a></li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
+        
         <span class="nav__sub-title">Web</span>
             <ul>
                 {% for category in site.categories %}
