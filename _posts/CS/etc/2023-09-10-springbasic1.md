@@ -18,7 +18,7 @@ sidebar_main: true
 1. vscode 확장파일설치
 2. <b>java.home 경로설정</b>
   - vscode 설정 -> javahome검색, settings.json
-  ![Alt text](image.png)
+  ![image](https://github.com/xxng1/xxng1.github.io/assets/114065532/c203885d-5f58-4cac-b77d-b60a87dce626)
   
 3. 버전에 맞는 프로젝트 생성
 
@@ -39,4 +39,4 @@ sidebar_main: true
 ~~~
 - 위와 같은 방법으로 간단하게 경로 추가 가능
 - 실행화면
-![Alt text](image-1.png)
+![image](https://github.com/xxng1/xxng1.github.io/assets/114065532/b60e789d-74ee-4dd4-aac7-5bc362ffb7dc)
