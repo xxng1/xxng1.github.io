@@ -1,0 +1,1055 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[Docker Container] WAS - DB 연결 - woongLog</title>
+<meta name="description" content="#">
+
+
+  <meta name="author" content="woong">
+  
+  <meta property="article:author" content="woong">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="woongLog">
+<meta property="og:title" content="[Docker Container] WAS - DB 연결">
+<meta property="og:url" content="http://localhost:4000/docker/docker1/">
+
+
+  <meta property="og:description" content="#">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-10-06T00:00:00+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docker/docker1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "woong",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="woongLog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          woongLog 🚀
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">📂</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">🏷️</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="https://user-images.githubusercontent.com/114065532/210770930-c15e7e89-ac57-4a00-9886-7277da52de09.png" alt="woong" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">woong</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>hello world!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">more</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="woongaa1@naver.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xxng1" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">menu</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        🔎 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">37</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+        <span class="nav__sub-title">algorithm</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/BOJ" class="">백준 (27)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Programmers" class="">프로그래머스 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+
+        <span class="nav__sub-title">C++</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/cpp" class="">C++ (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+
+        
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/tech" class="">Tech Interview(1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        
+        <span class="nav__sub-title">Web</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/nodejs" class="">NodeJs (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+      <li>	
+            <br>      
+            <style>
+                .hits{
+                    width: auto;
+                    height: auto;
+                    max-width: 150px;
+                    max-height: 20px;
+                }
+            </style>
+            <img class="hits" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fxxng1.github.io&count_bg=%239DAC92&title_bg=%23555555&icon=&icon_color=%238A4040&title=visitors&edge_flat=false"/></a>
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[Docker Container] WAS - DB 연결">
+    <meta itemprop="description" content="#">
+    <meta itemprop="datePublished" content="2023-10-06T00:00:00+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/docker/docker1/" class="u-url" itemprop="url">[Docker Container] WAS - DB 연결
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#docker-컨테이너를-활용한-3-tier-architecture-구성">Docker 컨테이너를 활용한 3-Tier Architecture 구성</a><ul><li><a href="#ws---was---db-연결---3-was---db-connecting">WS - WAS - DB 연결 - (3) WAS - DB Connecting</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>#</p>
+
+<h2 id="docker-컨테이너를-활용한-3-tier-architecture-구성">Docker 컨테이너를 활용한 3-Tier Architecture 구성</h2>
+
+<h3 id="ws---was---db-연결---3-was---db-connecting">WS - WAS - DB 연결 - (3) WAS - DB Connecting</h3>
+
+<p>기본적으로 도커 컨테이너를 실행시키고, 도커 컨테이너 쉘 bash로 작업한다.</p>
+
+<ul>
+  <li><strong>WAS(Tomcat) - DB(MariaDB) 연결</strong>
+    <ul>
+      <li>MariaDB 테스트테이블 생성
+        <ul>
+          <li>데이터베이스 이름: mydb</li>
+          <li>테이블 이름: users</li>
+          <li>테이블 칼럼: id, username, email</li>
+        </ul>
+      </li>
+      <li>연결을 위한 JDBC(자바 프로그램이 데이터베이스와 연결되어 데이터를 주고 받을 수 있게 해주는 프로그래밍 인터페이스) 설치
+        <ul>
+          <li>다운로드 명령어</li>
+        </ul>
+
+        <div class="language-docker highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  wget https://dlm.mariadb.com/2896635/Connectors/java/connector-java-2.7.9/mariadb-java-client-2.7.9.jar
+</code></pre></div>        </div>
+
+        <ul>
+          <li>설치 경로: tomcat/lib
+  예시) root@3a324624253c:/usr/local/tomcat/lib#</li>
+          <li>기본적으로 Docker 컨테이너에서는 관리자 권한이 없기 때문에 타 디렉터리에서 설치 후 cp명령 혹은 mv명령어로 이동을 시도할 수 없으므로 Dockerfile 수정을 이용해야 하는데, 번거로우므로 경로에 이동 후 설치하는 과정을 가졌다.</li>
+        </ul>
+      </li>
+      <li>MariaDB 주소 확인
+        <ul>
+          <li>
+            <p>주소 확인 명령어</p>
+
+            <div class="language-docker highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  docker inspect mariadb
+</code></pre></div>            </div>
+
+            <p><strong>“IPAddress”: “172.17.0.2”,</strong> 부분에서 ip를 확인한다.</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>Tomcat서버에서 받아오기위한 시작페이지를 수정한다.</p>
+
+        <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="n">language</span><span class="o">=</span><span class="s">"java"</span> <span class="n">contentType</span><span class="o">=</span><span class="s">"text/html;charset=UTF-8"</span> <span class="n">pageEncoding</span><span class="o">=</span><span class="s">"UTF-8"</span> <span class="o">%&gt;</span>
+  <span class="o">&lt;%</span><span class="err">@</span> <span class="n">page</span> <span class="kn">import</span> <span class="err">=</span> <span class="err">"</span><span class="nn">java.sql.*</span><span class="s">" %&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+      &lt;title&gt;Users Table&lt;/title&gt;
+      &lt;style&gt;
+          table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+              padding: 10px;
+          }
+      &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+        
+  &lt;%
+  Connection conn = null;
+  Statement stmt = null;
+  ResultSet rs = null;
+        
+  try {
+      String url = "</span><span class="nl">jdbc:mysql:</span><span class="c1">//172.17.0.2:3306/mydb"; // 명령어를 통해 확인한 mariadb 주소</span>
+      <span class="nc">String</span> <span class="n">id</span> <span class="o">=</span> <span class="s">"root"</span><span class="o">;</span>     <span class="c1">// 접속을 위한 계정의 ID</span>
+      <span class="nc">String</span> <span class="n">pw</span> <span class="o">=</span> <span class="s">"qwer1234!"</span><span class="o">;</span> <span class="c1">// 접속을 위한 계정의 암호</span>
+      <span class="nc">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="s">"org.mariadb.jdbc.Driver"</span><span class="o">);</span>
+      <span class="n">conn</span> <span class="o">=</span> <span class="nc">DriverManager</span><span class="o">.</span><span class="na">getConnection</span><span class="o">(</span><span class="n">url</span><span class="o">,</span> <span class="n">id</span><span class="o">,</span> <span class="n">pw</span><span class="o">);</span>
+        
+      <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;h1&gt;MariaDB DB 연결 성공&lt;/h1&gt;"</span><span class="o">);</span>
+        
+      <span class="n">stmt</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="na">createStatement</span><span class="o">();</span>
+      <span class="n">rs</span> <span class="o">=</span> <span class="n">stmt</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">(</span><span class="s">"SELECT id, username, email FROM users"</span><span class="o">);</span>
+        
+      <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;table&gt;"</span><span class="o">);</span>
+      <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;Username&lt;/th&gt;&lt;th&gt;Email&lt;/th&gt;&lt;/tr&gt;"</span><span class="o">);</span>
+        
+      <span class="k">while</span> <span class="o">(</span><span class="n">rs</span><span class="o">.</span><span class="na">next</span><span class="o">())</span> <span class="o">{</span>
+          <span class="kt">int</span> <span class="n">userId</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="s">"id"</span><span class="o">);</span>
+          <span class="nc">String</span> <span class="n">username</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"username"</span><span class="o">);</span>
+          <span class="nc">String</span> <span class="n">email</span> <span class="o">=</span> <span class="n">rs</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">"email"</span><span class="o">);</span>
+        
+          <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;tr&gt;&lt;td&gt;"</span> <span class="o">+</span> <span class="n">userId</span> <span class="o">+</span> <span class="s">"&lt;/td&gt;&lt;td&gt;"</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s">"&lt;/td&gt;&lt;td&gt;"</span> <span class="o">+</span> <span class="n">email</span> <span class="o">+</span> <span class="s">"&lt;/td&gt;&lt;/tr&gt;"</span><span class="o">);</span>
+      <span class="o">}</span>
+        
+      <span class="n">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"&lt;/table&gt;"</span><span class="o">);</span>
+  <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+  <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+      <span class="k">try</span> <span class="o">{</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">rs</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+              <span class="n">rs</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+          <span class="o">}</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">stmt</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+              <span class="n">stmt</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+          <span class="o">}</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">conn</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+              <span class="n">conn</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+          <span class="o">}</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">SQLException</span> <span class="n">se</span><span class="o">)</span> <span class="o">{</span>
+          <span class="n">se</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="o">%&gt;</span>
+        
+  <span class="o">&lt;/</span><span class="n">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">html</span><span class="o">&gt;</span>
+</code></pre></div>        </div>
+      </li>
+      <li>localhost:8080으로 접속해서 확인한다.</li>
+    </ul>
+
+    <p>## 실행화면
+  <img src="https://github.com/xxng1/xxng1.github.io/assets/114065532/7fc54232-2e42-4508-9914-831115068cfb" alt="image" /></p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#sysarch" class="page__taxonomy-item p-category" rel="tag">SysArch</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#docker" class="page__taxonomy-item p-category" rel="tag">Docker</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-10-06T00:00:00+09:00">October 6, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BDocker+Container%5D+WAS+-+DB+%EC%97%B0%EA%B2%B0%20http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fdocker%2Fdocker1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      <!--첫 번째 문단-->
+
+
+
+  
+  	
+  	
+  	
+  	
+  	
+
+<!--두 번째 문단-->
+
+  <nav class="pagination">
+    
+      <a href="/docker/docker/" class="pagination--pager">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.22</p>
+      
+      
+        <a href="/docker/docker/" rel="permalink">Docker Basic
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#docker" class="page__taxonomy-item-category" rel="tag">📂Docker</a>
+                    
+                    
+                    <a href="/tags/#server" class="page__taxonomy-item-tag" rel="tag">🏷️server</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.13</p>
+      
+      
+        <a href="/react/recoil_atom/" rel="permalink">Recoil와 atom
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#react" class="page__taxonomy-item-category" rel="tag">📂react</a>
+                    
+                    
+                    <a href="/tags/#react" class="page__taxonomy-item-tag" rel="tag">🏷️react</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.10</p>
+      
+      
+        <a href="/spring/springbasic1/" rel="permalink">Spring Boot 설치/경로설정
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring" class="page__taxonomy-item-category" rel="tag">📂spring</a>
+                    
+                    
+                    <a href="/tags/#spring-install" class="page__taxonomy-item-tag" rel="tag">🏷️spring install</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.08</p>
+      
+      
+        <a href="/react/git/" rel="permalink">react basic
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#react" class="page__taxonomy-item-category" rel="tag">📂react</a>
+                    
+                    
+                    <a href="/tags/#react" class="page__taxonomy-item-tag" rel="tag">🏷️react</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 woong. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

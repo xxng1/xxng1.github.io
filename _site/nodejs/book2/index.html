@@ -1,0 +1,1012 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>서점 웹사이트 만들기[2]_부트스트랩 적용 - woongLog</title>
+<meta name="description" content="nodejs">
+
+
+  <meta name="author" content="woong">
+  
+  <meta property="article:author" content="woong">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="woongLog">
+<meta property="og:title" content="서점 웹사이트 만들기[2]_부트스트랩 적용">
+<meta property="og:url" content="http://localhost:4000/nodejs/book2/">
+
+
+  <meta property="og:description" content="nodejs">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-02-22T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-02-22T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/nodejs/book2/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "woong",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="woongLog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          woongLog 🚀
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">📂</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">🏷️</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="https://user-images.githubusercontent.com/114065532/210770930-c15e7e89-ac57-4a00-9886-7277da52de09.png" alt="woong" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">woong</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>hello world!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">more</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="woongaa1@naver.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xxng1" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">menu</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        🔎 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">37</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+        <span class="nav__sub-title">algorithm</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/BOJ" class="">백준 (27)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Programmers" class="">프로그래머스 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+
+        <span class="nav__sub-title">C++</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/cpp" class="">C++ (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+
+        
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/tech" class="">Tech Interview(1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        
+        <span class="nav__sub-title">Web</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/nodejs" class="">NodeJs (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+      <li>	
+            <br>      
+            <style>
+                .hits{
+                    width: auto;
+                    height: auto;
+                    max-width: 150px;
+                    max-height: 20px;
+                }
+            </style>
+            <img class="hits" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fxxng1.github.io&count_bg=%239DAC92&title_bg=%23555555&icon=&icon_color=%238A4040&title=visitors&edge_flat=false"/></a>
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="서점 웹사이트 만들기[2]_부트스트랩 적용">
+    <meta itemprop="description" content="nodejs">
+    <meta itemprop="datePublished" content="2023-02-22T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-02-22T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/nodejs/book2/" class="u-url" itemprop="url">서점 웹사이트 만들기[2]_부트스트랩 적용
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#부트스트랩bootstrap-사용">부트스트랩(Bootstrap) 사용</a></li><li><a href="#cdn방식으로-링크-걸기">CDN방식으로 링크 걸기</a></li><li><a href="#네비게이션-바-홈-버튼-및-버튼-방식-추가하기">네비게이션 바, 홈 버튼 및 버튼 방식 추가하기</a></li><li><a href="#적용-후-모습">적용 후 모습</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <!--
+문제 🔍
+풀이 🎯 ⭕ ❌
+주의할 점 🚨
+짚고갈 점 ✏️
+기타 🔥🌝🪐🔔
+-->
+<h2 id="부트스트랩bootstrap-사용">부트스트랩(Bootstrap) 사용</h2>
+<p>아무리 게임을 잘 만들어도 디자인 부분이 별로면 흥미가 떨어지듯이,</p>
+
+<p>웹 페이지도 코드를 잘 짜고 기능들을 잘 구현했다한들 디자인은 결코 놓칠 수 없다.</p>
+
+<p>그렇기에 사용되는 것이 부트스트랩이다.</p>
+
+<p>부트스트랩이란 웹페이지의 디자인을 도와주는 프론트엔드 프레임워크인데,</p>
+
+<p>부트스트랩을 사용하는 방법에는 <code class="language-plaintext highlighter-rouge">직접 다운로드</code>하는 방법과, <code class="language-plaintext highlighter-rouge">CDN방식</code>으로 링크를 거는 방법이 있다.</p>
+
+<p>나는 CDN방식으로 부트스트랩을 사용해보았다.</p>
+
+<h2 id="cdn방식으로-링크-걸기">CDN방식으로 링크 걸기</h2>
+<p><a href="https://getbootstrap.com/">https://getbootstrap.com/</a></p>
+
+<p>부트스트랩 공식사이트에 가면, CDN방식으로 include하는 방법이 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"crossorigin="anonymous"&gt;
+</code></pre></div></div>
+<p>나는 해당 코드를 사용하였다.</p>
+
+<p>이후 아래 4줄을 추가해준다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://kit.fontawesome.com/c998a172fe.js"&gt;&lt;/script&gt;
+</code></pre></div></div>
+
+<p>네 줄 중 위 부터 세 줄은, 부트스트랩을 적용시켜주는 코드이다. 아이콘을 사용하기 위해 마지막 한줄까지 추가해준다.</p>
+
+<h2 id="네비게이션-바-홈-버튼-및-버튼-방식-추가하기">네비게이션 바, 홈 버튼 및 버튼 방식 추가하기</h2>
+<p>다음으로는 네비게이션 바와, 홈 버튼(타이틀), 메뉴 버튼을 추가해준다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"&gt;
+&lt;span class="navbar-brand mx-5 mb-0 font-weight-bold font-italic"&gt;woong's book&lt;/span&gt;
+&lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"&gt;
+    &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+&lt;/button&gt;
+</code></pre></div></div>
+<p>현재 코드이다.</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"</span><span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.3.1.slim.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://kit.fontawesome.com/c998a172fe.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+
+<span class="nt">&lt;body</span> <span class="na">style=</span><span class="s">"padding-top:90px;"</span> <span class="nt">&gt;</span>
+
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-expand-lg navbar-dark bg-dark fixed-top"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"navbar-brand mx-5 mb-0 font-weight-bold font-italic"</span><span class="nt">&gt;</span>woong's book<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"navbar-toggler"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">data-target=</span><span class="s">"#navbarSupportedContent"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"navbar-toggler-icon"</span><span class="nt">&gt;&lt;/span&gt;</span>
+        <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h2 id="적용-후-모습">적용 후 모습</h2>
+<p><img src="https://user-images.githubusercontent.com/114065532/220543728-81c8e8ca-299d-408e-b8cd-3851f026a94f.png" alt="image" /></p>
+
+<p>이제 네비게이션 바에 메뉴(탭)들을 추가해보자.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#web" class="page__taxonomy-item p-category" rel="tag">web</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#nodejs" class="page__taxonomy-item p-category" rel="tag">nodejs</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-02-22">February 22, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%84%9C%EC%A0%90+%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8+%EB%A7%8C%EB%93%A4%EA%B8%B0%5B2%5D_%EB%B6%80%ED%8A%B8%EC%8A%A4%ED%8A%B8%EB%9E%A9+%EC%A0%81%EC%9A%A9%20http%3A%2F%2Flocalhost%3A4000%2Fnodejs%2Fbook2%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fnodejs%2Fbook2%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fnodejs%2Fbook2%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      <!--첫 번째 문단-->
+
+
+
+  
+  	
+  	
+  	
+  	
+  	
+
+<!--두 번째 문단-->
+
+  <nav class="pagination">
+    
+      <a href="/nodejs/book1/" class="pagination--pager">이전</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.10.06</p>
+      
+      
+        <a href="/docker/docker1/" rel="permalink">[Docker Container] WAS - DB 연결
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#docker" class="page__taxonomy-item-category" rel="tag">📂Docker</a>
+                    
+                    
+                    <a href="/tags/#sysarch" class="page__taxonomy-item-tag" rel="tag">🏷️SysArch</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.22</p>
+      
+      
+        <a href="/docker/docker/" rel="permalink">Docker Basic
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#docker" class="page__taxonomy-item-category" rel="tag">📂Docker</a>
+                    
+                    
+                    <a href="/tags/#server" class="page__taxonomy-item-tag" rel="tag">🏷️server</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.13</p>
+      
+      
+        <a href="/react/recoil_atom/" rel="permalink">Recoil와 atom
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#react" class="page__taxonomy-item-category" rel="tag">📂react</a>
+                    
+                    
+                    <a href="/tags/#react" class="page__taxonomy-item-tag" rel="tag">🏷️react</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.10</p>
+      
+      
+        <a href="/spring/springbasic1/" rel="permalink">Spring Boot 설치/경로설정
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring" class="page__taxonomy-item-category" rel="tag">📂spring</a>
+                    
+                    
+                    <a href="/tags/#spring-install" class="page__taxonomy-item-tag" rel="tag">🏷️spring install</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 woong. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

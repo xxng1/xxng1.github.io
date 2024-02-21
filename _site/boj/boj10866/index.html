@@ -1,0 +1,1050 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[10866] 덱 - woongLog</title>
+<meta name="description" content="BOJ_C++">
+
+
+  <meta name="author" content="woong">
+  
+  <meta property="article:author" content="woong">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="woongLog">
+<meta property="og:title" content="[10866] 덱">
+<meta property="og:url" content="http://localhost:4000/boj/boj10866/">
+
+
+  <meta property="og:description" content="BOJ_C++">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-02-12T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-02-12T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/boj/boj10866/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "woong",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="woongLog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          woongLog 🚀
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">📂</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">🏷️</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="https://user-images.githubusercontent.com/114065532/210770930-c15e7e89-ac57-4a00-9886-7277da52de09.png" alt="woong" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">woong</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>hello world!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">more</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="woongaa1@naver.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xxng1" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">menu</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        🔎 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">37</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+        <span class="nav__sub-title">algorithm</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/BOJ" class="">백준 (27)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Programmers" class="">프로그래머스 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+
+        <span class="nav__sub-title">C++</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/cpp" class="">C++ (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+
+        
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/tech" class="">Tech Interview(1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        
+        <span class="nav__sub-title">Web</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/nodejs" class="">NodeJs (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+      <li>	
+            <br>      
+            <style>
+                .hits{
+                    width: auto;
+                    height: auto;
+                    max-width: 150px;
+                    max-height: 20px;
+                }
+            </style>
+            <img class="hits" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fxxng1.github.io&count_bg=%239DAC92&title_bg=%23555555&icon=&icon_color=%238A4040&title=visitors&edge_flat=false"/></a>
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[10866] 덱">
+    <meta itemprop="description" content="BOJ_C++">
+    <meta itemprop="datePublished" content="2023-02-12T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-02-12T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/boj/boj10866/" class="u-url" itemprop="url">[10866] 덱
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#-문제">🔍 문제</a></li><li><a href="#-풀이">🎯 풀이</a><ul><li><a href="#1-첫-번째-풀이">1. 첫 번째 풀이</a></li></ul></li><li><a href="#️-회고">✏️ 회고</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <!--
+문제 🔍
+풀이 🎯 ⭕ ❌
+주의할 점 🚨
+짚고갈 점 ✏️
+기타 🔥🌝🪐🔔
+-->
+<h2 id="-문제">🔍 문제</h2>
+<blockquote>
+  <p><a href="https://www.acmicpc.net/problem/10866">https://www.acmicpc.net/problem/10866</a></p>
+</blockquote>
+<div class="notice">
+  <p>정수를 저장하는 덱(Deque)를 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.</p>
+
+  <p>명령은 총 여덟 가지이다.</p>
+
+  <ul>
+    <li>push_front X: 정수 X를 덱의 앞에 넣는다.</li>
+    <li>push_back X: 정수 X를 덱의 뒤에 넣는다.</li>
+    <li>pop_front: 덱의 가장 앞에 있는 수를 빼고, 그 수를 출력한다. 만약, 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.</li>
+    <li>pop_back: 덱의 가장 뒤에 있는 수를 빼고, 그 수를 출력한다. 만약, 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.</li>
+    <li>size: 덱에 들어있는 정수의 개수를 출력한다.</li>
+    <li>empty: 덱이 비어있으면 1을, 아니면 0을 출력한다.</li>
+    <li>front: 덱의 가장 앞에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.</li>
+    <li>back: 덱의 가장 뒤에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.</li>
+  </ul>
+</div>
+
+<h2 id="-풀이">🎯 풀이</h2>
+<h3 id="1-첫-번째-풀이">1. 첫 번째 풀이</h3>
+<p>양방향 큐 데크(deque)를 구현하기 위한 STL을 이용한다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;deque&gt;</span><span class="cp">
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+    <span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+    <span class="kt">int</span> <span class="n">N</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">str</span><span class="p">;</span>
+    <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">d</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"push_back"</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">;</span>
+            <span class="n">d</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"push_front"</span><span class="p">){</span>
+            <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num</span><span class="p">;</span>
+            <span class="n">d</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"front"</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"-1"</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span><span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">front</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"back"</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"-1"</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span><span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"size"</span><span class="p">){</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"empty"</span><span class="p">){</span>
+            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"pop_front"</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"-1"</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span><span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">front</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+                <span class="n">d</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span><span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">str</span><span class="o">==</span><span class="s">"pop_back"</span><span class="p">){</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="o">==</span><span class="mi">1</span><span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"-1"</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span><span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">d</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+                <span class="n">d</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+            <span class="p">}</span>   
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="️-회고">✏️ 회고</h2>
+<p>-</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#algorithm" class="page__taxonomy-item p-category" rel="tag">Algorithm</a><span class="sep">, </span>
+    
+      <a href="/tags/#c" class="page__taxonomy-item p-category" rel="tag">C++</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#boj" class="page__taxonomy-item p-category" rel="tag">BOJ</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-02-12">February 12, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B10866%5D+%EB%8D%B1%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj10866%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj10866%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj10866%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      <!--첫 번째 문단-->
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  	
+  	
+  	
+  	
+  	
+
+<!--두 번째 문단-->
+
+  <nav class="pagination">
+    
+      <a href="/boj/boj11659/" class="pagination--pager">이전</a>
+    
+    
+      <a href="/boj/boj10816/" class="pagination--pager">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.10.06</p>
+      
+      
+        <a href="/docker/docker1/" rel="permalink">[Docker Container] WAS - DB 연결
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#docker" class="page__taxonomy-item-category" rel="tag">📂Docker</a>
+                    
+                    
+                    <a href="/tags/#sysarch" class="page__taxonomy-item-tag" rel="tag">🏷️SysArch</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.22</p>
+      
+      
+        <a href="/docker/docker/" rel="permalink">Docker Basic
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#docker" class="page__taxonomy-item-category" rel="tag">📂Docker</a>
+                    
+                    
+                    <a href="/tags/#server" class="page__taxonomy-item-tag" rel="tag">🏷️server</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.13</p>
+      
+      
+        <a href="/react/recoil_atom/" rel="permalink">Recoil와 atom
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#react" class="page__taxonomy-item-category" rel="tag">📂react</a>
+                    
+                    
+                    <a href="/tags/#react" class="page__taxonomy-item-tag" rel="tag">🏷️react</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.10</p>
+      
+      
+        <a href="/spring/springbasic1/" rel="permalink">Spring Boot 설치/경로설정
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring" class="page__taxonomy-item-category" rel="tag">📂spring</a>
+                    
+                    
+                    <a href="/tags/#spring-install" class="page__taxonomy-item-tag" rel="tag">🏷️spring install</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 woong. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

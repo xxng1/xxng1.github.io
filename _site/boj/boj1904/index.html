@@ -1,0 +1,1001 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="ko" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[1904] 01타일 - woongLog</title>
+<meta name="description" content="BOJ_C++">
+
+
+  <meta name="author" content="woong">
+  
+  <meta property="article:author" content="woong">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="woongLog">
+<meta property="og:title" content="[1904] 01타일">
+<meta property="og:url" content="http://localhost:4000/boj/boj1904/">
+
+
+  <meta property="og:description" content="BOJ_C++">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-02-22T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2023-02-22T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/boj/boj1904/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "woong",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="woongLog Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          woongLog 🚀
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/categories/">📂</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/">🏷️</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">토글 메뉴</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="https://user-images.githubusercontent.com/114065532/210770930-c15e7e89-ac57-4a00-9886-7277da52de09.png" alt="woong" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">woong</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>hello world!</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">more</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="woongaa1@naver.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/xxng1" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+
+  
+    
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">menu</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+        🔎 <span style="font-family:'Cafe24Oneprettynight';">전체 글 수</style> <span style="font-family:'Coming Soon';">37</style> <span style="font-family:'Cafe24Oneprettynight';">개</style> 
+      </li>
+      <li>
+        <span class="nav__sub-title">algorithm</span>
+            <ul>
+                
+                    
+                
+                    
+                        <li><a href="/categories/BOJ" class="">백준 (27)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                        <li><a href="/categories/Programmers" class="">프로그래머스 (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+
+        <span class="nav__sub-title">C++</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/cpp" class="">C++ (1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+
+        
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/tech" class="">Tech Interview(1)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+
+        
+        <span class="nav__sub-title">Web</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li><a href="/categories/nodejs" class="">NodeJs (2)</a></li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        <span class="nav__sub-title">etc</span>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul>
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+      </li>
+      <li>	
+            <br>      
+            <style>
+                .hits{
+                    width: auto;
+                    height: auto;
+                    max-width: 150px;
+                    max-height: 20px;
+                }
+            </style>
+            <img class="hits" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fxxng1.github.io&count_bg=%239DAC92&title_bg=%23555555&icon=&icon_color=%238A4040&title=visitors&edge_flat=false"/></a>
+      </li>
+  </ul>
+</nav>
+
+
+  
+
+  </div>
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[1904] 01타일">
+    <meta itemprop="description" content="BOJ_C++">
+    <meta itemprop="datePublished" content="2023-02-22T00:00:00+09:00">
+    <meta itemprop="dateModified" content="2023-02-22T00:00:00+09:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/boj/boj1904/" class="u-url" itemprop="url">[1904] 01타일
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu"><li><a href="#-문제">🔍 문제</a></li><li><a href="#-풀이">🎯 풀이</a><ul><li><a href="#1-첫-번째-풀이">1. 첫 번째 풀이</a></li></ul></li><li><a href="#️-회고">✏️ 회고</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <!--
+문제 🔍
+풀이 🎯 ⭕ ❌
+주의할 점 🚨
+짚고갈 점 ✏️
+기타 🔥🌝🪐🔔
+-->
+<h2 id="-문제">🔍 문제</h2>
+<blockquote>
+  <p><a href="https://www.acmicpc.net/problem/1904">https://www.acmicpc.net/problem/1904</a></p>
+</blockquote>
+<div class="notice">
+  <p>지원이에게 2진 수열을 가르쳐 주기 위해, 지원이 아버지는 그에게 타일들을 선물해주셨다. 그리고 이 각각의 타일들은 0 또는 1이 쓰여 있는 낱장의 타일들이다.</p>
+
+  <p>어느 날 짓궂은 동주가 지원이의 공부를 방해하기 위해 0이 쓰여진 낱장의 타일들을 붙여서 한 쌍으로 이루어진 00 타일들을 만들었다. 결국 현재 1 하나만으로 이루어진 타일 또는 0타일을 두 개 붙인 한 쌍의 00타일들만이 남게 되었다.</p>
+
+  <p>그러므로 지원이는 타일로 더 이상 크기가 N인 모든 2진 수열을 만들 수 없게 되었다. 예를 들어, N=1일 때 1만 만들 수 있고, N=2일 때는 00, 11을 만들 수 있다. (01, 10은 만들 수 없게 되었다.) 또한 N=4일 때는 0011, 0000, 1001, 1100, 1111 등 총 5개의 2진 수열을 만들 수 있다.</p>
+
+  <p>우리의 목표는 N이 주어졌을 때 지원이가 만들 수 있는 모든 가짓수를 세는 것이다. 단 타일들은 무한히 많은 것으로 가정하자.</p>
+</div>
+
+<h2 id="-풀이">🎯 풀이</h2>
+<h3 id="1-첫-번째-풀이">1. 첫 번째 풀이</h3>
+<p>문제가 복잡해 보이지만 N의 가짓수를 계산해 보면 1,2,3,5,8… 로 피보나치 수열과 같다.</p>
+
+<p>다만, 구현하는데에 있어서 숫자가 너무 커져 오버플로우가 발생하므로</p>
+
+<p>재귀를 돌릴 때 그때그때 15746으로 나누어 주어야 한다.</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">long</span> <span class="kt">long</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1000001</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,};</span>
+
+<span class="kt">long</span> <span class="kt">long</span> <span class="nf">dp</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="n">num</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="o">%</span><span class="mi">15746</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">num</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">dp</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="o">%</span><span class="mi">15746</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+  <span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+  <span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+
+  <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">arr</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+  <span class="kt">long</span> <span class="kt">long</span> <span class="n">N</span><span class="p">;</span>
+  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span><span class="p">;</span>
+  
+  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dp</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="️-회고">✏️ 회고</h2>
+<p>-</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> 태그: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#algorithm" class="page__taxonomy-item p-category" rel="tag">Algorithm</a><span class="sep">, </span>
+    
+      <a href="/tags/#c" class="page__taxonomy-item p-category" rel="tag">C++</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> 카테고리: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#boj" class="page__taxonomy-item p-category" rel="tag">BOJ</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> 업데이트:</strong> <time class="dt-published" datetime="2023-02-22">February 22, 2023</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">공유하기</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5B1904%5D+01%ED%83%80%EC%9D%BC%20http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj1904%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj1904%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fboj%2Fboj1904%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="공유하기 LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      <!--첫 번째 문단-->
+
+
+
+  
+
+  
+
+  
+  	
+  	
+  	
+  	
+  	
+
+<!--두 번째 문단-->
+
+  <nav class="pagination">
+    
+      <a href="/boj/boj11729/" class="pagination--pager">이전</a>
+    
+    
+      <a href="/boj/boj15649/" class="pagination--pager">다음</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h2 class="page__related-title">참고</h2>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.10.06</p>
+      
+      
+        <a href="/docker/docker1/" rel="permalink">[Docker Container] WAS - DB 연결
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#docker" class="page__taxonomy-item-category" rel="tag">📂Docker</a>
+                    
+                    
+                    <a href="/tags/#sysarch" class="page__taxonomy-item-tag" rel="tag">🏷️SysArch</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.22</p>
+      
+      
+        <a href="/docker/docker/" rel="permalink">Docker Basic
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#docker" class="page__taxonomy-item-category" rel="tag">📂Docker</a>
+                    
+                    
+                    <a href="/tags/#server" class="page__taxonomy-item-tag" rel="tag">🏷️server</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.13</p>
+      
+      
+        <a href="/react/recoil_atom/" rel="permalink">Recoil와 atom
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#react" class="page__taxonomy-item-category" rel="tag">📂react</a>
+                    
+                    
+                    <a href="/tags/#react" class="page__taxonomy-item-tag" rel="tag">🏷️react</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+      <p class="page__meta"><i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i> 2023.09.10</p>
+      
+      
+        <a href="/spring/springbasic1/" rel="permalink">Spring Boot 설치/경로설정
+</a>
+      
+    </h2>
+    
+        
+        <span class="page__taxonomy">
+            <span itemprop="keywords"><a href="/categories/#spring" class="page__taxonomy-item-category" rel="tag">📂spring</a>
+                    
+                    
+                    <a href="/tags/#spring-install" class="page__taxonomy-item-tag" rel="tag">🏷️spring install</a>
+                
+            </span>
+        </span>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>팔로우:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> 피드</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 woong. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
