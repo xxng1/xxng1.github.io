@@ -5,14 +5,462 @@
     <description>这里是 @woong黄玄 的个人博客，与你一起发现更大的世界 | 要做一个有 swag 的程序员</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 22 Feb 2024 02:44:29 +0900</pubDate>
-    <lastBuildDate>Thu, 22 Feb 2024 02:44:29 +0900</lastBuildDate>
+    <pubDate>Thu, 22 Feb 2024 21:22:32 +0900</pubDate>
+    <lastBuildDate>Thu, 22 Feb 2024 21:22:32 +0900</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>SSE 방식을 이용한 알림 구현</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;프로젝트에서 사용했던 SSE 방식에 대해&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;개요&quot;&gt;개요&lt;/h2&gt;
+&lt;p&gt;알림 구현에는 크게 4가지 방식이 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;폴링polling&quot;&gt;폴링(Polling)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;일정 시간마다 Client에서 Server로 요청을 보내고 응답을 받는 방식&lt;/li&gt;
+  &lt;li&gt;응답해줄 데이터가 없어도 응답을 받음&lt;/li&gt;
+  &lt;li&gt;지속적으로 request를 날림으로써 비용 부담 및 서버에 부하를 줄 수 있음
+&lt;img src=&quot;https://velog.velcdn.com/images/woongaa1/post/119c4231-3077-4528-8e7c-4b83ce622220/image.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;롱-폴링long-polling&quot;&gt;롱 폴링(Long Polling)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;긴 connection을 열어두고, 이벤트가 발생했을때 Request를 보냄&lt;/li&gt;
+  &lt;li&gt;응답해줄 데이터가 없으면 데이터가 생길때까지 기다림&lt;/li&gt;
+  &lt;li&gt;connection 간격이 좁으면 Polling 방식과 큰 차이가 없음
+&lt;img src=&quot;https://velog.velcdn.com/images/woongaa1/post/81491857-b22f-41a5-9be3-6e6109891178/image.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;웹소켓websocket&quot;&gt;웹소켓(WebSocket)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;양방향 통신으로써 Client, Server 간 Handshaking 방식으로 접속 후 통신&lt;/li&gt;
+  &lt;li&gt;연결 후 계속 connection을 유지하므로 불필요한 비용 발생할 수 있음
+&lt;img src=&quot;https://velog.velcdn.com/images/woongaa1/post/ce042b62-c64d-40ba-85c3-8f8c1b4d5476/image.png&quot; alt=&quot;&quot; /&gt;
+    &lt;h3 id=&quot;sseserver-sent-events&quot;&gt;SSE(Server-Sent-Events)&lt;/h3&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Client가 Server에 구독 요청을 보내면, Server에서 이벤트가 발생할 때마다 Response를 보냄&lt;/li&gt;
+  &lt;li&gt;Server에서 Client로만 이벤트를 보내는 단방향 통신&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;우리는 사용자 알림에 대해서 기능을 구현할 예정이었기 때문에, SSE 방식을 통해서 알림을 구현하기로 했다.
+&lt;img src=&quot;https://velog.velcdn.com/images/woongaa1/post/d200c868-0596-4913-8f15-c636e05c83c5/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;구현&quot;&gt;구현&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Emitter&lt;/code&gt;란?
+SseEmitter 라는 SSE 통신을 위한 구현체를 제공받기 위해 사용&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;React(Client)&lt;/code&gt;에서 SSE응답을 받기 위한 방법
+token을 사용하지 않을 때: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EventSource&lt;/code&gt;
+token을 사용할 때: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EventSourcePolyfill&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;우리는 사용자 인증/인가를 JWT를 사용하여 구현하였기 때문에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EventSourcePolyfill&lt;/code&gt;을 사용하게 되었다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;SseEmitters&lt;/strong&gt; 클래스
+```
+@Slf4j
+@Getter
+@Component
+@RequiredArgsConstructor
+public class SseEmitters {
+ private final ConcurrentHashMap&amp;lt;String, SseEmitter&amp;gt; emitters = new ConcurrentHashMap&amp;lt;&amp;gt;();&lt;/p&gt;
+
+    &lt;p&gt;public SseEmitter add(String id, SseEmitter emitter) {
+     emitters.put(id, emitter);
+     log.info(“new emitter added: {}”, emitter);
+     log.info(“emitter list size: {}”, emitters.size());&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt; return emitter;  }
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;public Map&amp;lt;String, SseEmitter&amp;gt; findEmitter(String id){
+     return emitters.entrySet().stream()
+             .filter(entry -&amp;gt; entry.getKey().startsWith(id))
+             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+ }&lt;/p&gt;
+
+    &lt;p&gt;public void delete(String id) {
+     emitters.remove(id);
+ }
+}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;- 이벤트를 관리하는 SseEmitter, ConcurrentHashMap을 통해서 여러 스레드에서 동시에 접근해도 데이터를 처리할 수 있도록 함
+
+2. **NotificationController** 클래스
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;@Slf4j
+@RestController
+@RequiredArgsConstructor
+@RequestMapping(“/api/notification”)
+public class NotificationController {
+    private final JWTUtil jwtUtil;
+    private final NotificationService notificationService;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;// sse 연결
+@GetMapping(value = &quot;/subscribe/{userId}&quot;, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+public ResponseEntity&amp;lt;SseEmitter&amp;gt; subscribe(@PathVariable Long userId,
+                                            @RequestHeader(value = &quot;lastEventId&quot;, required = false, defaultValue = &quot;&quot;) String lastEventId,
+                                            HttpServletResponse response){
+    log.info(lastEventId);
+    return new ResponseEntity&amp;lt;&amp;gt;(notificationService.subscribe(userId, response), HttpStatus.OK);
+}
+
+// 유저 별 알림 조회
+@GetMapping(&quot;/{userId}&quot;)
+public ResponseEntity&amp;lt;List&amp;lt;Notification&amp;gt;&amp;gt; getUserNotifications(@PathVariable Long userId){
+    List&amp;lt;Notification&amp;gt; notifications = notificationService.getUserNotifications(userId);
+    return new ResponseEntity&amp;lt;&amp;gt; (notifications, HttpStatus.OK);
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;- 클라이언트 Header에 알림 모달이 위치해있고, 유저가 로그인해서 메인페이지에 접속하게 되면 Header를 통해서 `/api/notification/subscribe/{userId}`에 구독 요청을 보낸다.
+- 알림에는 아이디가 존재하는데, 통신 간에 누락 된 알림을 테스트하기 위해 lastEventId를 사용했다.
+- MediaType.TEXT_EVENT_STREAM_VALUE는 SSE를 지원하는 텍스트 형식을 나타낸다.
+
+3. **NotificationService** 클래스
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;@Slf4j
+@Service
+@RequiredArgsConstructor
+public class NotificationService {
+    private final SseEmitters sseEmitters;
+    private final NotificationRepository notificationRepository;
+    // timeout 시간 설정
+    private static final long TIMEOUT = 60 * 1000L;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;public SseEmitter subscribe(Long userId, HttpServletResponse response) {
+    // 기존의 연결 종료
+    String existingId = userId + &quot;_&quot;;
+    Map&amp;lt;String, SseEmitter&amp;gt; existingEmitters = sseEmitters.findEmitter(existingId);
+    existingEmitters.forEach((key, emitter) -&amp;gt; {
+        emitter.complete();
+        sseEmitters.delete(key);
+    });
+
+    // 새 연결 생성
+    SseEmitter emitter = new SseEmitter(TIMEOUT);
+    String id = userId + &quot;_&quot; + System.currentTimeMillis();
+    sseEmitters.add(id, emitter);
+
+    // NGINX PROXY 에서의 필요 설정 불필요한 버퍼링방지
+    response.setHeader(&quot;X-Accel-Buffering&quot;, &quot;no&quot;);
+
+    Map&amp;lt;String, Object&amp;gt; testContent = new HashMap&amp;lt;&amp;gt;();
+    testContent.put(&quot;content&quot;, &quot;connected!&quot;);
+    sendToClient(emitter, &quot;test&quot;, id, testContent);
+
+    // 타임아웃 시 emitter 만료
+    emitter.onTimeout(() -&amp;gt; {
+        log.info(&quot;onTimeout callback&quot;);
+        emitter.complete();
+        sseEmitters.delete(id);
+    });
+
+	// 에러 발생
+    emitter.onError(throwable -&amp;gt; {
+        log.error(&quot;[sse] SseEmitters 파일 add 메서드 : {}&quot;, throwable.getMessage());
+        emitter.complete();
+        sseEmitters.delete(id);
+    });
+
+	//클라이언트와의 연결이 끊어졌을 때
+    emitter.onCompletion(() -&amp;gt; {
+        log.info(&quot;onCompletion callback&quot;);
+        sseEmitters.delete(id);
+    });
+
+    return emitter;
+}
+
+
+private void sendToClient(SseEmitter emitter, String name, String id, Object data) {
+    try {
+        emitter.send(SseEmitter.event()
+                .id(id)
+                .name(name)
+                .data(data));
+    } catch (IOException exception) {
+        sseEmitters.delete(id);
+        throw new RuntimeException(&quot;연결 오류!&quot;);
+    }
+}
+
+@Transactional
+public void send(SendNotificationEvent noti) {
+    Notification notification = notificationRepository.save(Notification.create(noti));
+    log.info(&quot;저장됨&quot;);
+
+    String receiverId = noti.getReceiver() + &quot;_&quot;;
+    log.info(receiverId);
+
+    // 해당 회원의 emitter 모두 찾아서 이벤트 전송
+    Map&amp;lt;String, SseEmitter&amp;gt; emitters = sseEmitters.findEmitter(receiverId);
+    log.info(emitters.entrySet().toString());
+
+    emitters.forEach(
+        (key, emitter) -&amp;gt; {
+            sendToClient(emitter, noti.getName(), noti.getEventId(), notification);
+            log.info(&quot;알림 전송 완료&quot;);
+        }
+    );
+}
+
+// 유저 별 알림 조회
+public List&amp;lt;Notification&amp;gt; getUserNotifications(Long userId) {
+    return notificationRepository.findByReceiverOrderByNotificationCreatedDateDesc(userId);
+}
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;- 구독 요청이 들어왔을 때, 새로운 Emitter를 생성하고 더미 데이터를 보낸다. 기존 연결이 있다면 제거하고 새로운 Emitter를 생성한다.
+
+
+추가적으로, 읽지 않은 알림 및 전체 알림 조회/삭제 기능을 위해서 알림에 대한 Entity와 Repository를 생성해줬다.
+
+(+) 클라이언트에서 구독 요청 &amp;amp; 응답 읽기
+
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;// sse 연결 선언
+useEffect(() =&amp;gt; {
+    // 마운트 시 로그인 상태 + sse 연결이 안 된 상태면 연결
+    if (token &amp;amp;&amp;amp; !eventSource) {
+        subscribe();
+    }
+
+    // 언마운트 시 sse 연결 종료
+    return () =&amp;gt; {
+        if (eventSource) {
+            eventSource.close();
+            console.log(&quot;연결 종료&quot;);
+            setEventSource(null);
+        }
+    }
+},[eventSource, token])
+
+// sse 연결 시작
+const subscribe = async () =&amp;gt; {
+    console.log(&quot;연결 시작&quot;);
+    const source = new EventSourcePolyfill(
+        `${notifyApi}/subscribe/` + userId,
+        {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            lastEventId: lastEventId,
+        },
+        heartbeatTimeout: 600000,
+        }
+    );
+    
+    // mileage 관련 알림 받아옴
+    source.addEventListener(&quot;mileage&quot;, (e) =&amp;gt; {
+        setLastEventId(e.lastEventId);
+        console.log(lastEventId);
+        const data = JSON.parse(e.data);
+        console.log(data);
+        toast(data.content);
+        setNotifications((prevNotifications) =&amp;gt; [data, ...prevNotifications]);
+        console.log(notifications);
+        setUnreadCount((prevCount) =&amp;gt; prevCount + 1);
+    });
+} ``` 연결 이펙트에 대한 함수를 선언하고, Server에서 보내는 알림에 대해 setNotifications useState에 인자로 넣어준다.
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;trouble-shooting&quot;&gt;Trouble Shooting&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;프로젝트에서 WebServer로 nginx를 사용했는데, nginx는 WAS로 HTTP/1.0을 사용하고 Connection: close 헤더를 사용하기 때문에 지속적으로 연결이 안돼서 SSE가 작동하지 않는다.
+이에 대한 설정으로 nginx.conf에 추가해준다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;proxy_set_header Connection &apos;&apos;;
+proxy_http_version 1.1;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;open-in-view를 false로 설정하여 요청이 트랜잭션이 처리되는 동안에만 데이터베이스 연결을 열어준다.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 22 Feb 2024 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2024/02/22/sse/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/02/22/sse/</guid>
+        
+        <category>Spring Boot</category>
+        
+        <category>SSE</category>
+        
+        
+      </item>
     
       <item>
         <title>우리 팀에서 사용한 Git Branch 전략</title>
         <description>&lt;blockquote&gt;
-  &lt;p&gt;Github로 협업하는 과정에서 사용한 우리 팀의 Git-Branch 전략을 정리해 보았다.&lt;/p&gt;
+  &lt;p&gt;Github로 협업하는 과정에서 사용한 우리 팀의 Git-Branch 전략&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;branch&quot;&gt;Branch&lt;/h2&gt;

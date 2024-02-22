@@ -16,7 +16,7 @@
     
     <meta property="og:type" content="website">
     <meta property="og:description"
-        content="hello woong!">
+        content="Hello Woong!">
     
     <meta property="og:image" content="http://localhost:4000https://github.com/xxng1.png">
     <meta property="og:url" content="http://localhost:4000/">
@@ -207,6 +207,13 @@
     }
 
     
+    header.intro-header .header-mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0,0,0, 1.0);
+    }
+    
 </style>
 
 
@@ -224,7 +231,7 @@
         <div class="site-heading">
         
           <h1>woongLog</h1>
-          <span class="subheading">hello woong!</span>
+          <span class="subheading">Hello Woong!</span>
         </div>
       </div>
     </div>
@@ -244,6 +251,39 @@
       col-xs-12 postlist-container">
       
 <div class="post-preview">
+    <a href="/2024/02/22/sse/">
+        <h2 class="post-title">
+            SSE 방식을 이용한 알림 구현
+        </h2>
+        
+        <div class="post-content-preview">
+            
+                
+  프로젝트에서 사용했던 SSE 방식에 대해
+
+
+개요
+알림 구현에는 크게 4가지 방식이 있다.
+
+폴링(Polling)
+
+  일정 시간마다 Client에서 Server로 요청을 보내고 응답을 받는 방식
+  응답해줄 데이터가 없어도 응답을 받음
+  지속적으로 request를 날림으로써 비용 부담 및 서버에 부하를 줄 수 있음
+
+
+
+롱 폴링(Long Po...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by xxng1 on February 22, 2024
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="/2024/02/22/git/">
         <h2 class="post-title">
             우리 팀에서 사용한 Git Branch 전략
@@ -252,14 +292,16 @@
         <div class="post-content-preview">
             
                 
-  Github로 협업하는 과정에서 사용한 우리 팀의 Git-Branch 전략을 정리해 보았다.
+  Github로 협업하는 과정에서 사용한 우리 팀의 Git-Branch 전략
 
 
 Branch
 브랜치는 용도에 맞게 master(main), develop, feature, release, hotfix 브랜치를 분리해서 사용한다.
 
 메인 브랜치: master, develop
-보조 브랜치: feature, release, hotfix...
+보조 브랜치: feature, release, hotfix
+
+개발기간이 1달...
             
         </div>
     </a>
