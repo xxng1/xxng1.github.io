@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: woongaaaaa1@gmail.com
 description: "这里是 @woong黄玄 的个人博客，与你一起发现更大的世界 | 要做一个有 swag 的程序员"
 keyword: "黄玄, woong黄玄, woong, 鬼栈, woongpro, @woongpro, 黄玄的博客, woong Blog, 博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, 设计"
-url: "https://huangxuan.me" # your host, for absolute URL
+url: "https://xxng1.github.io" #"https://huangxuan.me" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
