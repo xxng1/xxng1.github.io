@@ -8,7 +8,7 @@
         <hr class="hidden-sm hidden-xs">
     {% endif %}
     <h5><a href="{{'/archive/' | prepend: site.baseurl }}">FEATURED TAGS</a></h5>
-    <div class="tags">
+    <!-- <div class="tags">
         {% capture tags %}
         {% comment %}
             there must be no space between for and if otherwise this tricky sort won't work.
@@ -23,6 +23,7 @@
         {% endif %}{% endfor %}
         {% endcapture %}
         {{ tags | split:'__SEPARATOR__' | sort }}
-    </div>
+    </div> -->
+    <img class="hits" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fxxng1.github.io&count_bg=%239DAC92&title_bg=%23555555&icon=&icon_color=%238A4040&title=visitors&edge_flat=false"/></a>
 </section>
 {% endif %}
