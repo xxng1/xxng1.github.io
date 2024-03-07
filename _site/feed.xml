@@ -5,9 +5,261 @@
     <description>这里是 @woong黄玄 的个人博客，与你一起发现更大的世界 | 要做一个有 swag 的程序员</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 06 Mar 2024 09:08:17 +0900</pubDate>
-    <lastBuildDate>Wed, 06 Mar 2024 09:08:17 +0900</lastBuildDate>
+    <pubDate>Thu, 07 Mar 2024 18:12:39 +0900</pubDate>
+    <lastBuildDate>Thu, 07 Mar 2024 18:12:39 +0900</lastBuildDate>
     <generator>Jekyll v4.3.2</generator>
+    
+      <item>
+        <title>AWS Services(2)</title>
+        <description>&lt;p&gt;&lt;strong&gt;Amazon EventBridge&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;애플리케이션 요소를 연결하는 이벤트 기반 서버리스 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;SES(Simple Email Service)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;SMTP(Simple Mail Transfer Protocol)방식과 API방식으로 이메일을 수신&amp;amp;발신&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;SNS(Simple notifications service)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A2A, A2p 방식으로 알림을 전송&lt;/li&gt;
+  &lt;li&gt;A2A: 분산된 시스템, 마이크로서비스 및 이벤트중심의 서버리스 애플리케이션 간 처리량이 많은 푸시 기반 다대다 메시징&lt;/li&gt;
+  &lt;li&gt;A2P: SMS 텍스트, 푸시 알림, 이메일을 통한 메시지 전송&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;EventBridge&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Amazon CloudWatch Events기능 기반 상태 변화(이벤트) 감지&lt;/li&gt;
+  &lt;li&gt;메일 전송, 인증서 감지 등에 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Amazon FSx&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Windows Server에 구축되는 완전관리형 파일 스토리지&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;SFTP(SSH File Transfer Protocol)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;암호화를 통한 파일 저장&amp;amp;업로드에 사용되는 전송 프로토콜&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DataSync&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;온프레미스(On-premise)와 AWS 스토리지 서비스 사이 데이터 마이그레이션을 자동화/가속화하는 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;**AWS Firewall Manager **&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;AWS shield advanced의 속성, DDos 탐지 강화&lt;/li&gt;
+  &lt;li&gt;SQL Injection, XSS 공격 등 방어&lt;/li&gt;
+  &lt;li&gt;Region이 나누어져 있을 경우 일시 중앙에서 생성&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;SQS(Simple Queue Service)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;서비스가 커질수록 여러 서버에서 처리하게 되면서, 작업을 분리 할 때 등의 메시지를 주고받을 때 사용하는 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;오리진 액세스 제한&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;원본 액세스 제어(OAC), 원본 액세스 ID(OAI) 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Amazon Athena&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;표준 SQL을 사용하여 S3의 데이터를 분석하는 대화형 쿼리 서비스&lt;/li&gt;
+  &lt;li&gt;서버리스 서비스이므로 일회성 쿼리에 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Amazon QuickSight&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Amazon의 셀프 서비스 시각화 인텔리전스(BI) 도구&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Amazon MSK(Amazon Managed Streaming for Apache Kafka)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;완전관리형 Kafka를 통한 실시간 스트리밍 데이터 처리 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://velog.velcdn.com/images/woongaa1/post/eb0ad643-aba9-4930-921f-d30dd1df062e/image.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 07 Mar 2024 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2024/03/07/AWSwords_2/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/03/07/AWSwords_2/</guid>
+        
+        <category>Cloud</category>
+        
+        <category>AWS</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>AWS Services(1) (feat. network)</title>
+        <description>&lt;h1 id=&quot;network&quot;&gt;Network&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;NAT&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;네트워크 트래픽을 패킷을 수정함으로써 포트 및 주소 등을 기록&lt;/li&gt;
+  &lt;li&gt;프라이빗 서브넷에 대한 인터넷 엑세스를 활성화하는 등에 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;aws-services&quot;&gt;AWS Services&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;Region&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;물리적으로 떨어진 지역에서의 여러개의 클라우드 인프라&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Availabilty Zone&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;리전들이 모여 구성하는 데이터 센터&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Edge Location&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;CDN(Content Delivery Network)을 이루는 캐시 서버&lt;/li&gt;
+  &lt;li&gt;‘리전 에지 캐시’를 통해 데이터 속도 개선&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;EC2(Elastic Compute Cloud)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;컴퓨터 리소스에 대해 전반적 관리를 도와주는 가상 서버&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Lambda&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;특정한 이벤트를 통해 입력 인자가 발생하면 연산 과정으로 출력 인자를 바꾸는 이벤트 기반의 컴퓨팅 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ECS&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;AWS에서 제공하는 도커 컨테이너 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Lightsail&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;완전 관리형 가상 서버 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Beanstalk&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;EC2의 설정을 쉽게 돕는 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;S3&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;서비스 운영시 생성되는 이미지, 동영상, 오디오 파일등을 저장하는 스토리지 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Glacier&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;사용 빈도가 낮을 때(예: 백업 데이터) 사용하기 좋은 스토리지&lt;/li&gt;
+  &lt;li&gt;저렴하지만 트래픽 요금이 높다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Storage Gateway&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;기존의 on-premise 환경과 AWS를 연결해주는 게이트웨이 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;EBS(Elastic Block Storage)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;EC2와 연결할 수 있는 저장장치 서비스&lt;/li&gt;
+  &lt;li&gt;EC2의 하드디스크, SSD 스냅샷을 통해 언제든 EC2를 백업&amp;amp;복원 가능&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;RDS&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;관계형 데이터베이스(RDBMS)를 구축하는 서비스&lt;/li&gt;
+  &lt;li&gt;SSD영역에서 입출력이 수행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DinamoDB&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;No-SQL 기반의 완전 관리형 데이터베이스&lt;/li&gt;
+  &lt;li&gt;SSD영역에서 입출력이 수행&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Elasticcache&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;메모리에 데이터를 저장하여 빠르게 입출력이 가능한 데이터베이스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Red Shift&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;완전 관리형 SQL 데이터 웨어하우스로써 대용량의 정형 데이터를 처리하는데 사용&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;VPC(Virtual Private Cloud)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;가상 네트워크망 구축 지원 서비스&lt;/li&gt;
+  &lt;li&gt;서비스 보안 수준을 결정하거나 적합한 권한이 있는 사용자들만 접속할 수 있도록 관리&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Route53&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;AWS의 DNS(Domain Name System)서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;CloudFront&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;AWS의 클라우드 CDN서비스로 에지 로케이션 서버를 이용하여 콘텐츠를 배포&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Polly&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;텍스트를 음성으로 바꾸는(TTS) 음성 합성 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Lex&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;대화형 챗봇(Chatbot) 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Rekognition&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;이미지 인식&amp;amp;분석 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;QuickSight&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;태블로(Tableau)와 같이 데이터를 시각화하는 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Athena&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;서버리스 기반 SQL 쿼리 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;CloudSearch&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;완전 관리형 검색 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;EMR(Amazon Elastic MapReduce)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;빅데이터 분석 플랫폼인 하둡 프레임워크를 연동하여 사용할 수 있는 서비스&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Kinesis&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;실시간 데이터 처리를 위한 서비스&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 06 Mar 2024 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000/2024/03/06/AWSwords/</link>
+        <guid isPermaLink="true">http://localhost:4000/2024/03/06/AWSwords/</guid>
+        
+        <category>Cloud</category>
+        
+        <category>Network</category>
+        
+        <category>AWS</category>
+        
+        
+      </item>
     
       <item>
         <title>SSE 방식을 이용한 알림 구현</title>
