@@ -10,24 +10,31 @@ tags:
 aws ec2 사용
 
 1. EC2 생성 및 SSH 접속
-- AMI: Ubuntu 프리티어
-- 인스턴스: t2.small ( t2.micro로 진행하면 kafka는 켜지지 않고 zookeeper만 켜진다!!!!!!!! ) 메모리 이슈
-- 스토리지: 30GiB gp2
-- 보안그룹 설정
-- 주키퍼 2181
-- 카프카 9092
-- mysql 3306
-- mongodb 27018
+    - AMI: Ubuntu 프리티어
+    - 인스턴스: t2.small (t2.micro로 진행하면 kafka는 켜지지 않고 zookeeper만 켜짐) - 메모리 이슈
+    - 스토리지: 30GiB gp2
+    - 보안그룹 설정
+    - Zookeeper: 2181
+    - Kafka: 9092
+    - MySQL: 3306
+    - MongoDB: 27018
 ![](https://velog.velcdn.com/images/woongaa1/post/9eb8eb5a-35a4-49a6-9bf2-435c035468c7/image.png)
 
+2. docker & docker-compose 설치
+
+```html
 sudo passwd
 apt-get update
 apt-get install docker.io
 apt-get install docker-compose
 midir kafka
 cd kafka
-vi docker-compose.yml
 ```
+
+3. docker-compose.yml 작성
+
+```html
+vi docker-compose.yml
 version: '2'
 
 services:
@@ -52,7 +59,10 @@ services:
       KAFKA_DELETE_TOPIC_ENABLE: "true"
 
 ```
-docker-compose up -d
+
+
+- docker-compose 실행(docker-compose up -d)
+
 ```
 root@ip-:~/kafka# docker ps
 CONTAINER ID   IMAGE                           COMMAND                  CREATED         STATUS         PORTS                                                                   NAMES

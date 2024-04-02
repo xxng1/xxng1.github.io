@@ -291,11 +291,11 @@ docker run --name dmarket-front -p 80:80 -p 443:443 -d ${reposito...
   EC2 생성 및 SSH 접속
     
       AMI: Ubuntu 프리티어
-      인스턴스: t2.small ( t2.micro로 진행하면 kafka는 켜지지 않고 zookeeper만 켜진다!!!!!!!! ) 메모리 이슈
+      인스턴스: t2.small (t2.micro로 진행하면 kafka는 켜지지 않고 zookeeper만 켜짐) - 메모리 이슈
       스토리지: 30GiB gp2
       보안그룹 설정
-      주키퍼 2181
-   ...
+      Zookeeper: 2181
+     ...
             
         </div>
     </a>
