@@ -91,6 +91,42 @@ const getRedirectUrl = (req) => {
 }
 
 
+// /**
+//  *  @Lifecycle Install
+//  *  Precache anything static to this version of your app.
+//  *  e.g. App Shell, 404, JS/CSS dependencies...
+//  *
+//  *  waitUntil() : installing ====> installed
+//  *  skipWaiting() : waiting(installed) ====> activating
+//  */
+// self.addEventListener('install', e => {
+//   e.waitUntil(
+//     caches.open(CACHE).then(cache => {
+//       return cache.addAll(PRECACHE_LIST)
+//         .then(self.skipWaiting())
+//         .catch(err => console.log(err))
+//     })
+//   )
+// });
+
+
+// /**
+//  *  @Lifecycle Activate
+//  *  New one activated when old isnt being used.
+//  *
+//  *  waitUntil(): activating ====> activated
+//  */
+// self.addEventListener('activate', event => {
+//   // delete old deprecated caches.
+//   caches.keys().then(cacheNames => Promise.all(
+//     cacheNames
+//       .filter(cacheName => DEPRECATED_CACHES.includes(cacheName))
+//       .map(cacheName => caches.delete(cacheName))
+//   ))
+//   console.log('service worker activated.')
+//   event.waitUntil(self.clients.claim());
+// });
+
 /**
  *  @Lifecycle Install
  *  Precache anything static to this version of your app.
@@ -103,29 +139,29 @@ self.addEventListener('install', e => {
   e.waitUntil(
     caches.open(CACHE).then(cache => {
       return cache.addAll(PRECACHE_LIST)
-        .then(self.skipWaiting())
-        .catch(err => console.log(err))
+        .then(self.skipWaiting()) // 설치가 완료되면, 대기 상태를 건너뛰고 바로 활성화됩니다.
+        .catch(err => console.log(err));
     })
-  )
+  );
 });
-
 
 /**
  *  @Lifecycle Activate
- *  New one activated when old isnt being used.
+ *  New one activated when old isn't being used.
  *
  *  waitUntil(): activating ====> activated
  */
 self.addEventListener('activate', event => {
-  // delete old deprecated caches.
-  caches.keys().then(cacheNames => Promise.all(
-    cacheNames
-      .filter(cacheName => DEPRECATED_CACHES.includes(cacheName))
-      .map(cacheName => caches.delete(cacheName))
-  ))
-  console.log('service worker activated.')
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys().then(cacheNames => Promise.all(
+      cacheNames
+        .filter(cacheName => DEPRECATED_CACHES.includes(cacheName))
+        .map(cacheName => caches.delete(cacheName))
+    )).then(() => self.clients.claim()) // 활성화된 후, 열려 있는 페이지들을 즉시 제어합니다.
+  );
+  console.log('Service worker activated.');
 });
+
 
 
 var fetchHelper = {
