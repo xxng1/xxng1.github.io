@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "Kafka와 Python Script를 통한 데이터 마이그레이션"
+title:        " Kafka와 Python Script를 통한 데이터 마이그레이션 ( MySQL ➡️ MongoDB )"
 author:       "xxng1"
 header-style: text
 catalog:      true
@@ -10,16 +10,29 @@ tags:
     - mysql
     - python
 ---
-Kafka를 통해서 데이터 마이그레이션을 하는 방법은 다양한데, debezium을 사용할 수도 있고, spring 웹 개발 과정에서의 의존성을 추가하거나, python script를 이용하는 방법 등이 있습니다.
+# MySQL ➡️ Kafka ➡️ MongoDB
+
+
+Kafka를 통해서 데이터 마이그레이션을 하는 방법은 다양한데, debezium을 사용할 수도 있고, spring 웹 개발 과정에서의 연동을 추가하거나, python script를 이용하는 방법 등이 있습니다.
 오늘은 python script를 이용해서 데이터 마이그레이션을 하는 과정을 알아보겠습니다.
 
-## MongoDB Compass 설치 (선택)
+
+# 목차
+1. MongoDB Compass 설치 (선택)
+2. MongoDB 설치(Docker)
+3. MySQL 데이터 생성
+4. kafka 설치 & 토픽 생성
+5. python script 작성
+6. 실행&결과화면
+
+
+# MongoDB Compass 설치 (선택)
 mongodb의 GUI 입니다. 셸에서 데이터를 조회해도 상관없습니다.
 https://www.mongodb.com/try/download/compass
 
 
 
-## mongoDB 설치(Docker)
+# MongoDB 설치(Docker)
 docker mongodb container or mongodb atlas 중 mongodb를 실행할 타입을 선택합니다. 저는 docker를 통해서 연결해보겠습니다.
 
 `docker pull mongo`
@@ -36,7 +49,7 @@ MongoDB Compass에서 작업에 사용할 데이터베이스와 컬렉션을 생
 
     
     
-## mysql 데이터 생성
+# MySQL 데이터 생성
 작업에 진행할 테스트 데이터를 생성해줍니다.
 
 ### 데이터베이스 이름: kafka
@@ -75,7 +88,7 @@ INSERT INTO post (count, info, item_name, price, todaycount) VALUES
 ```
 
 
-## kafka 설치 & 토픽 생성
+# kafka 설치 & 토픽 생성
 kafka는 docker-compose를 통해서 설치해주겠습니다.
 해당 내용으로 docker-compose를 백그라운드로 실행합니다. 
 `docker-compose up -d`
@@ -109,7 +122,7 @@ services:
 
  
  
-## python script 작성
+# python script 작성
 python script를 통해서 kafka의 producer와 consumer를 생성하여 데이터 마이그레이션을 진행합니다.
 
 producer.py에서 host, user, password, database를 설정해주고, 사용할 kafka topic, 마이그레이션 할 table name 등을 설정해줍니다.
@@ -197,16 +210,20 @@ if __name__ == "__main__":
 
 consumer.py코드에서는 사용할 db와 collection이름을 지정해주어야 합니다.
 MongoDB Compass를 통해서 만들었던 이름을 사용합니다. 10~11번째 줄에서 지정해줍니다.
+
 `self.db = self.client['mongotest']`
+
 `self.collection = self.db['mongotestcollection']`
+
 또한 컨슈머에서 어떤 토픽을 사용할지 지정해주어야 합니다. 18번째 줄에서 지정해줍니다. 
+
 `self.consumer = KafkaConsumer('MongoMysql',`
      
      
 (+) 추가적으로 MongoDB를 컨테이너가 아닌 atlas를 통해 사용하고 있다면, connect url을 입력해줍니다. 
 `self.client = pymongo.MongoClient("mongodb+srv://atlas_user:atlas123@mycluster.p0ytpkn.mongodb.net/?retryWrites=true&w=majority")`
      
-## consumer.py
+### consumer.py
 
 
 ```
@@ -266,6 +283,9 @@ consumer는 현재 producer에서 데이터 전송이 이루어질때까지 대�
 consumer.py 실행 이후에 producer.py를 실행시켜줍니다.
 
 이를 MongoDB Compass와 terminal을 통해서 확인해보겠습니다.
+
+
+# 실행&결과화면
 
 
 ### consumer를 실행시킨 모습
