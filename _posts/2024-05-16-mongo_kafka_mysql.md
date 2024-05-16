@@ -36,6 +36,7 @@ https://www.mongodb.com/try/download/compass
 docker mongodb container or mongodb atlas 중 mongodb를 실행할 타입을 선택합니다. 저는 docker를 통해서 연결해보겠습니다.
 
 `docker pull mongo`
+
 `docker run --name mongodb -dp 27017:27017 mongo`
 
 docker container를 통해서 실행한 mongoDB에 connect해줍니다.
@@ -120,6 +121,7 @@ services:
 생성한 컨테이너 bash에 접속해서, 'MongoMysql' 이란 이름의 토픽을 생성해줍니다.
 
 `docker exec -it kafka /bin/bash `
+
 `kafka-topics.sh --create --topic MongoMysql -- bootstrap-server localhost:9092 --replication-factor 1` 
 
  
