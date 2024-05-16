@@ -37,6 +37,7 @@ docker mongodb container or mongodb atlas 중 mongodb를 실행할 타입을 선
 
 `docker pull mongo`
 `docker run --name mongodb -dp 27017:27017 mongo`
+
 docker container를 통해서 실행한 mongoDB에 connect해줍니다.
 ![](https://velog.velcdn.com/images/woongaa1/post/a1a432c3-8d7f-44e2-bdb9-0d45f3b30ce5/image.png)
 
@@ -91,6 +92,7 @@ INSERT INTO post (count, info, item_name, price, todaycount) VALUES
 # kafka 설치 & 토픽 생성
 kafka는 docker-compose를 통해서 설치해주겠습니다.
 해당 내용으로 docker-compose를 백그라운드로 실행합니다. 
+
 `docker-compose up -d`
 
 
@@ -127,7 +129,10 @@ python script를 통해서 kafka의 producer와 consumer를 생성하여 데이�
 
 producer.py에서 host, user, password, database를 설정해주고, 사용할 kafka topic, 마이그레이션 할 table name 등을 설정해줍니다.
 
-사용할 토픽의 이름: 52, 65번째 줄의 `kafka_producer_post_tags = KafkaProducerWrapper(topic='MongoMysql')`
+사용할 토픽의 이름: 52, 65번째 줄의 
+
+`kafka_producer_post_tags = KafkaProducerWrapper(topic='MongoMysql')`
+
 ### producer.py
 ```
 from kafka import KafkaProducer
@@ -221,6 +226,7 @@ MongoDB Compass를 통해서 만들었던 이름을 사용합니다. 10~11번째
      
      
 (+) 추가적으로 MongoDB를 컨테이너가 아닌 atlas를 통해 사용하고 있다면, connect url을 입력해줍니다. 
+
 `self.client = pymongo.MongoClient("mongodb+srv://atlas_user:atlas123@mycluster.p0ytpkn.mongodb.net/?retryWrites=true&w=majority")`
      
 ### consumer.py
