@@ -1,4 +1,4 @@
-## hello woong!👋 [Backend&DevOps Engineer]
+## hello woong!👋
 ### 🔥 Experience
 - KakaoEnterprise SW Academy(KEA) - 집중프로젝트 교육(기업주도, dktechin)
 - KakaoEnterprise SW Academy(KEA) - 집중프로젝트 교육(PBL)

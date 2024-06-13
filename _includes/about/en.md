@@ -1,4 +1,4 @@
-## hello woong!👋 [Backend&DevOps Engineer]
+## hello woong!👋
 ### 🔥 Experience
 - KakaoEnterprise SW Academy(KEA) - Intensive project training (company-led, dktechin)
 - KakaoEnterprise SW Academy(KEA) - Intensive Project Training (PBL)
